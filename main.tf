@@ -1,7 +1,7 @@
 locals {
   tags = null
   region_workspaces_az_id_strings = {
-    "us-east-1" = join(",", formatlist("use1-az%d", list("2", "4", "6")))
+    "us-west-1" = join(",", formatlist("use1-az%d", list("2", "4", "6")))
   }
 
   workspaces_az_id_strings = lookup(local.region_workspaces_az_id_strings, data.aws_region.current.name, join(",", data.aws_availability_zones.available.zone_ids))
